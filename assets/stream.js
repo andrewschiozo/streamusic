@@ -29,7 +29,7 @@ function loadMusicas()
 	    	var item = $('<li></li>');
 	    	item.addClass('list-group-item');
 	    	item.addClass('list-group-item-action');
-	    	item.attr('url', value.file);
+	    	item.attr('url', value.url);
 	    	item.text(value.artist + ' - ' + value.title);
 	    	$('#musicas').append(item);
    		});

@@ -12,14 +12,26 @@ $(function(){
 	$('#menu').on('click', '.nav-item', function(data){
 		$('#btnMenu').trigger('click');
 	});
-
 	//On list item click
 	$('#content').on('click', '.list-group > li', function(data){
 		$('source').attr('src', $(this).attr('url'));
-		var audio = document.getElementsByTagName('audio')[0];
-		audio.load();
+		$('.active').removeClass('active');
+		$(this).addClass('active');
+		$('audio')[0].load();
+		$('audio')[0].play();
+	});
+
+	$('audio').on('ended', function() {
+		next();
 	});
 });
+
+function next()
+{
+	var next = $('.active').next();
+	$('.active').removeClass('active');
+	next.trigger('click');
+}
 
 function loadMusicas()
 {
